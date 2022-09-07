@@ -16,7 +16,7 @@ Location needs to be specified as command argument in format "<city name>,<ISO 3
 ./weatherman forecast "Paris,FR"
 
 If only city name is specified, Serbia (RS) is presumed.`,
-	Args: cobra.ExactArgs(1),
+	Args: cobra.MaximumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		weatherman.GetWeatherForecast(args)
 	},

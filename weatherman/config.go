@@ -1,6 +1,7 @@
 package weatherman
 
 import (
+	"fmt"
 	"log"
 	"os"
 	"path/filepath"
@@ -9,9 +10,10 @@ import (
 )
 
 const (
-	configDir  = ".weatherman"
-	configFile = "config"
-	configType = "yaml"
+	configDir   = ".weatherman"
+	configFile  = "config"
+	configType  = "yaml"
+	defaultCity = "Belgrade,RS"
 )
 
 func getConfigFilePath() string {
@@ -49,4 +51,14 @@ func getUserHomeDir() string {
 func InitConfig() {
 	viper.SetConfigFile(getConfigFilePath())
 	viper.SetConfigType(configType)
+	_ = viper.ReadInConfig()
+}
+
+func createConfigDir() {
+	d := getConfigFileDir()
+	fmt.Printf("Creating configuration directory %s\n", d)
+	err := os.Mkdir(d, os.ModePerm)
+	if err != nil {
+		log.Fatal(err)
+	}
 }

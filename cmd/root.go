@@ -8,8 +8,7 @@ import (
 )
 
 const (
-	defaultCity = "Belgrade,RS"
-	logo        = `
+	logo = `
 ██╗    ██╗███████╗ █████╗ ████████╗██╗  ██╗███████╗██████╗ ███╗   ███╗ █████╗ ███╗   ██╗
 ██║    ██║██╔════╝██╔══██╗╚══██╔══╝██║  ██║██╔════╝██╔══██╗████╗ ████║██╔══██╗████╗  ██║
 ██║ █╗ ██║█████╗  ███████║   ██║   ███████║█████╗  ██████╔╝██╔████╔██║███████║██╔██╗ ██║
@@ -26,9 +25,7 @@ var (
 
 Retrieve current weather (weatherman current), forecast (weatherman forecast) and pollution (weatherman pollution) information for any place in the world.
 
-Based on OpenWeather data.
-
-If no subcommand is specified, weatherman shows current weather conditions for Belgrade, Serbia.`, //TODO: default city
+Based on OpenWeather data.`,
 		PersistentPreRun: func(cmd *cobra.Command, args []string) {
 			weatherman.InitConfig()
 		},

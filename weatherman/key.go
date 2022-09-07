@@ -3,7 +3,6 @@ package weatherman
 import (
 	"fmt"
 	"log"
-	"os"
 
 	"github.com/spf13/viper"
 )
@@ -11,8 +10,6 @@ import (
 const apiKeyConfKey = "apiKey"
 
 func APIKeyIsSet() bool {
-	_ = viper.ReadInConfig()
-
 	if !viper.IsSet(apiKeyConfKey) || viper.GetString(apiKeyConfKey) == "" {
 		return false
 	} else {
@@ -28,17 +25,12 @@ func getAPIKey() string {
 	return viper.GetString(apiKeyConfKey)
 }
 
-func SaveAPIKey(args []string) {
+func SaveAPIKey(apiKey string) {
 	if !configDirExists() {
-		d := getConfigFileDir()
-		fmt.Printf("Creating configuration directory %s\n", d)
-		err := os.Mkdir(d, os.ModePerm)
-		if err != nil {
-			log.Fatal(err)
-		}
+		createConfigDir()
 	}
 
-	viper.Set(apiKeyConfKey, args[0])
+	viper.Set(apiKeyConfKey, apiKey)
 
 	f := getConfigFilePath()
 	fmt.Printf("Writing API key to configuration file %s\n", f)

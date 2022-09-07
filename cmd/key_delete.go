@@ -5,7 +5,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var deleteCmd = &cobra.Command{
+var keyDeleteCmd = &cobra.Command{
 	Use:   "delete",
 	Short: "Delete a previously saved OpenWeather API key",
 	Long:  `Remove a previously saved OpenWeather API key from the configuration file located at $HOME/.weatherman/config.`,
@@ -16,5 +16,5 @@ var deleteCmd = &cobra.Command{
 }
 
 func init() {
-	keyCmd.AddCommand(deleteCmd)
+	keyCmd.AddCommand(keyDeleteCmd)
 }

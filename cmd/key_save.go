@@ -5,7 +5,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var saveCmd = &cobra.Command{
+var keySaveCmd = &cobra.Command{
 	Use:   "save [apikey] [flags]",
 	Short: "Save OpenWeather API key",
 	Long: `
@@ -14,10 +14,10 @@ Save OpenWeather API key to the configuration file located at $HOME/.weatherman/
 ./weatherman key save 123456qwerty789`,
 	Args: cobra.ExactArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
-		weatherman.SaveAPIKey(args)
+		weatherman.SaveAPIKey(args[0])
 	},
 }
 
 func init() {
-	keyCmd.AddCommand(saveCmd)
+	keyCmd.AddCommand(keySaveCmd)
 }
