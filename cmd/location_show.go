@@ -5,16 +5,16 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var cityShowCmd = &cobra.Command{
+var locationShowCmd = &cobra.Command{
 	Use:   "show",
-	Short: "Show default city",
-	Long:  `Display previously defined default city.`,
+	Short: "Show default location",
+	Long:  `Display previously defined default location.`,
 	Args:  cobra.ExactArgs(0),
 	Run: func(cmd *cobra.Command, args []string) {
-		weatherman.ShowCity()
+		weatherman.ShowLocation()
 	},
 }
 
 func init() {
-	cityCmd.AddCommand(cityShowCmd)
+	locationCmd.AddCommand(locationShowCmd)
 }

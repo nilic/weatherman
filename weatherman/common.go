@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-func cityToLatLon(c string, apiKey string) (float64, float64) {
+func locationToLatLon(l string, apiKey string) (float64, float64) {
 	type geo []struct {
 		Name    string  `json:"name"`
 		Lat     float64 `json:"lat"`
@@ -16,7 +16,7 @@ func cityToLatLon(c string, apiKey string) (float64, float64) {
 		Country string  `json:"country"`
 	}
 
-	location := makeLocation(c)
+	location := makeLocation(l)
 
 	urlGeo := fmt.Sprintf("https://api.openweathermap.org/geo/1.0/direct?q=%s&APPID=%s&limit=1", location, apiKey)
 

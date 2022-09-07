@@ -30,15 +30,15 @@ type pollution struct {
 func GetPollution(args []string) {
 	apiKey := getAPIKey()
 
-	var c string
+	var l string
 
 	if len(args) > 0 {
-		c = args[0]
+		l = args[0]
 	} else {
-		c = getCity()
+		l = getLocation()
 	}
 
-	lat, lon := cityToLatLon(c, apiKey)
+	lat, lon := locationToLatLon(l, apiKey)
 
 	url := fmt.Sprintf("https://api.openweathermap.org/data/2.5/air_pollution?lat=%s&lon=%s&APPID=%s", strconv.FormatFloat(lat, 'f', 4, 64), strconv.FormatFloat(lon, 'f', 4, 64), apiKey)
 
