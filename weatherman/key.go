@@ -32,8 +32,7 @@ func SaveAPIKey(apiKey string) {
 
 	viper.Set(apiKeyConfKey, apiKey)
 
-	f := getConfigFilePath()
-	fmt.Printf("Writing API key to configuration file %s\n", f)
+	fmt.Println("Writing API key to configuration file..")
 	viper.WriteConfig()
 	fmt.Println("Done!")
 }
@@ -43,13 +42,12 @@ func ShowAPIKey() {
 }
 
 func DeleteAPIKey() {
-	f := getConfigFilePath()
 	if APIKeyIsSet() {
-		fmt.Printf("Removing API key from the configuration file %s\n", f)
+		fmt.Println("Removing API key from the configuration file..")
 		viper.Set(apiKeyConfKey, "")
 		viper.WriteConfig()
 		fmt.Println("Done!")
 	} else {
-		fmt.Printf("API key not found in the configuration file %s\nNothing to delete.", f)
+		fmt.Println("API key not found in the configuration file.Nothing to delete.")
 	}
 }
