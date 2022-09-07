@@ -48,6 +48,6 @@ func DeleteAPIKey() {
 		viper.WriteConfig()
 		fmt.Println("Done!")
 	} else {
-		fmt.Println("API key not found in the configuration file.Nothing to delete.")
+		fmt.Println("API key not found in the configuration file. Nothing to delete.")
 	}
 }
