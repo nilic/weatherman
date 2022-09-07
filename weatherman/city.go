@@ -8,7 +8,10 @@ import (
 	"github.com/spf13/viper"
 )
 
-const cityConfKey = "city"
+const (
+	cityConfKey = "city"
+	defaultCity = "Belgrade,RS"
+)
 
 func cityIsSet() bool {
 	if !viper.IsSet(cityConfKey) {

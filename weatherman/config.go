@@ -10,10 +10,9 @@ import (
 )
 
 const (
-	configDir   = ".weatherman"
-	configFile  = "config"
-	configType  = "yaml"
-	defaultCity = "Belgrade,RS"
+	configDir  = ".weatherman"
+	configFile = "config"
+	configType = "yaml"
 )
 
 func getConfigFilePath() string {

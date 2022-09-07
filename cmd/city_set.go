@@ -9,7 +9,7 @@ var citySetCmd = &cobra.Command{
 	Use:   "set",
 	Short: "Set default city",
 	Long: `
-Save default city to the configuration file located at $HOME/.weatherman/config, eg.
+Save default city to the configuration file, eg.
 		
 ./weatherman city set Paris,FR
 

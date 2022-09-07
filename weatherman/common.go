@@ -16,19 +16,9 @@ func cityToLatLon(c string, apiKey string) (float64, float64) {
 		Country string  `json:"country"`
 	}
 
-	var country string
+	location := makeLocation(c)
 
-	s := strings.Split(c, ",")
-	if len(s) == 1 {
-		country = "RS"
-	} else if len(s) == 2 && s[1] != "" {
-		country = strings.TrimSpace(s[1])
-	} else {
-		log.Fatal("Invalid location argument, please specify location as \"<city name>,<ISO 3166 country code>\" or just \"<city name>\" if the city is in Serbia.")
-	}
-	city := strings.ReplaceAll(strings.TrimSpace(s[0]), " ", "+")
-
-	urlGeo := fmt.Sprintf("https://api.openweathermap.org/geo/1.0/direct?q=%s&APPID=%s&limit=1", city+","+country, apiKey)
+	urlGeo := fmt.Sprintf("https://api.openweathermap.org/geo/1.0/direct?q=%s&APPID=%s&limit=1", location, apiKey)
 
 	resp, err := http.Get(urlGeo)
 	if err != nil {
@@ -50,4 +40,20 @@ func cityToLatLon(c string, apiKey string) (float64, float64) {
 	}
 
 	return g[0].Lat, g[0].Lon
+}
+
+func makeLocation(c string) string {
+	var city, country string
+
+	s := strings.Split(c, ",")
+	if len(s) == 1 {
+		country = getCountry()
+	} else if len(s) == 2 && s[1] != "" {
+		country = strings.TrimSpace(s[1])
+	} else {
+		log.Fatal("Invalid location argument, please specify location as \"<city name>,<ISO 3166 country code>\" or by setting default city/country.")
+	}
+	city = strings.ReplaceAll(strings.TrimSpace(s[0]), " ", "+")
+
+	return city + "," + country
 }
