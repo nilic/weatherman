@@ -13,9 +13,7 @@ Retrieve 5-day weather forecast including temperature, wind speed and chance of 
 
 Location needs to be specified as command argument in format "<city name>,<ISO 3166 country code>", eg.
 
-./weatherman forecast "Paris,FR"
-
-If only city name is specified, Serbia (RS) is presumed.`,
+./weatherman forecast "Paris,FR"`,
 	Args: cobra.MaximumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		weatherman.GetWeatherForecast(args)

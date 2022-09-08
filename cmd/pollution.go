@@ -13,9 +13,7 @@ Retrieve pollution information including Air Quality Index (AQI) and concentrati
 
 Location needs to be specified as command argument in format "<city name>,<ISO 3166 country code>", eg.
 
-./weatherman pollution "Paris,FR"
-
-If only city name is specified, Serbia (RS) is presumed.`,
+./weatherman pollution "Paris,FR"`,
 	Args: cobra.MaximumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		weatherman.GetPollution(args)
