@@ -5,7 +5,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var listISOCodesCmd = &cobra.Command{
+var countryListISOCodesCmd = &cobra.Command{
 	Use:   "list-iso-codes",
 	Short: "Prints all countries and their two-letter ISO 3166 country code",
 	Long:  `Prints country names in english along with their two-letter ISO 3166 country code`,
@@ -15,5 +15,5 @@ var listISOCodesCmd = &cobra.Command{
 }
 
 func init() {
-	countryCmd.AddCommand(listISOCodesCmd)
+	countryCmd.AddCommand(countryListISOCodesCmd)
 }
