@@ -1,4 +1,4 @@
-## weatherman - OpenWeather CLI
+## ☀️ weatherman - OpenWeather CLI ☀️
 weatherman is a CLI tool that can retrieve [OpenWeather](https://openweathermap.org/) data such as current weather, forecast and pollution information for a given location and display it in a human-readable format.
 
 ## Getting started
