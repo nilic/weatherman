@@ -9,20 +9,12 @@ import (
 
 const apiKeyConfKey = "apiKey"
 
-func APIKeyIsSet() bool {
+func apiKeyIsSet() bool {
 	if !viper.IsSet(apiKeyConfKey) || viper.GetString(apiKeyConfKey) == "" {
 		return false
 	} else {
 		return true
 	}
-}
-
-func getAPIKey() string {
-	if !APIKeyIsSet() {
-		log.Fatal("OpenWeather API key not found, please run ./weatherman key save to add one")
-	}
-
-	return viper.GetString(apiKeyConfKey)
 }
 
 func SaveAPIKey(apiKey string) {
@@ -42,7 +34,7 @@ func ShowAPIKey() {
 }
 
 func DeleteAPIKey() {
-	if APIKeyIsSet() {
+	if apiKeyIsSet() {
 		fmt.Println("Removing API key from the configuration file..")
 		viper.Set(apiKeyConfKey, "")
 		viper.WriteConfig()
@@ -50,4 +42,12 @@ func DeleteAPIKey() {
 	} else {
 		fmt.Println("API key not found in the configuration file. Nothing to delete.")
 	}
+}
+
+func getAPIKey() string {
+	if !apiKeyIsSet() {
+		log.Fatal("OpenWeather API key not found, please run ./weatherman key save to add one")
+	}
+
+	return viper.GetString(apiKeyConfKey)
 }

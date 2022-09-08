@@ -5,7 +5,7 @@ import (
 )
 
 var countryCmd = &cobra.Command{
-	Use:   "country [set|get]",
+	Use:   "country",
 	Short: "Commands for managing default country configuration",
 	Long: `
 Commands for managing default country configuration, ie. setting the default country (country set) and retrieving the default country (country get).

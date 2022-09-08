@@ -13,22 +13,6 @@ const (
 	defaultLocation = "Belgrade,RS"
 )
 
-func locationIsSet() bool {
-	if !viper.IsSet(locationConfKey) {
-		return false
-	} else {
-		return true
-	}
-}
-
-func getLocation() string {
-	if locationIsSet() {
-		return viper.GetString(locationConfKey)
-	} else {
-		return defaultLocation
-	}
-}
-
 func SetLocation(l string) {
 	if !locationIsValid(l) {
 		log.Fatal("Invalid location format, please specify location as \"<city name>,<ISO 3166 country code>\", eg \"Paris,FR\".")
@@ -46,6 +30,22 @@ func SetLocation(l string) {
 
 func ShowLocation() {
 	fmt.Print(getLocation())
+}
+
+func getLocation() string {
+	if locationIsSet() {
+		return viper.GetString(locationConfKey)
+	} else {
+		return defaultLocation
+	}
+}
+
+func locationIsSet() bool {
+	if !viper.IsSet(locationConfKey) {
+		return false
+	} else {
+		return true
+	}
 }
 
 func locationIsValid(l string) bool {

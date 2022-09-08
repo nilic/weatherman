@@ -36,7 +36,8 @@ func locationToLatLon(l string, apiKey string) (float64, float64) {
 	if err := json.NewDecoder(resp.Body).Decode(&g); err != nil {
 		log.Fatal(err)
 	} else if len(g) == 0 {
-		log.Fatal("Given location not found in the OpenWeather database, exiting..")
+		fmt.Printf("Given location %s not found in the OpenWeather database\n", location)
+		log.Fatal("Exiting..")
 	}
 
 	return g[0].Lat, g[0].Lon

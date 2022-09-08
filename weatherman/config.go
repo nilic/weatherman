@@ -15,6 +15,12 @@ const (
 	configType = "yaml"
 )
 
+func InitConfig() {
+	viper.SetConfigFile(getConfigFilePath())
+	viper.SetConfigType(configType)
+	_ = viper.ReadInConfig()
+}
+
 func getConfigFilePath() string {
 	return filepath.Join(getUserHomeDir(), configDir, configFile)
 }
@@ -45,12 +51,6 @@ func getUserHomeDir() string {
 	}
 
 	return homeDir
-}
-
-func InitConfig() {
-	viper.SetConfigFile(getConfigFilePath())
-	viper.SetConfigType(configType)
-	_ = viper.ReadInConfig()
 }
 
 func createConfigDir() {
