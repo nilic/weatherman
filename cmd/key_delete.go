@@ -8,7 +8,7 @@ import (
 var keyDeleteCmd = &cobra.Command{
 	Use:   "delete",
 	Short: "Delete a previously saved OpenWeather API key",
-	Long:  `Remove a previously saved OpenWeather API key from the configuration file located at $HOME/.weatherman/config.`,
+	Long:  `Remove a previously saved OpenWeather API key from the configuration file.`,
 	Args:  cobra.ExactArgs(0),
 	Run: func(cmd *cobra.Command, args []string) {
 		weatherman.DeleteAPIKey()

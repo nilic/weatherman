@@ -9,7 +9,7 @@ var keySaveCmd = &cobra.Command{
 	Use:   "save [apikey] [flags]",
 	Short: "Save OpenWeather API key",
 	Long: `
-Save OpenWeather API key to the configuration file located at $HOME/.weatherman/config, eg.
+Save OpenWeather API key to the configuration file, eg.
 	
 ./weatherman key save 123456qwerty789`,
 	Args: cobra.ExactArgs(1),
