@@ -45,7 +45,7 @@ func SetCountry(c string) {
 
 func ShowCountry() {
 	c := getCountry()
-	fmt.Printf("%s (%s)", countries.ByName(c), c)
+	fmt.Printf("%s (%s)\n", countries.ByName(c), c)
 }
 
 func countryIsSet() bool {

@@ -29,7 +29,7 @@ func SetLocation(l string) {
 }
 
 func ShowLocation() {
-	fmt.Print(getLocation())
+	fmt.Println(getLocation())
 }
 
 func getLocation() string {
